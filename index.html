@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bamboo Foam Mattress</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="logo-wrap" onclick="goHome()">
+    <div class="logo-mark">BF</div>
+    <div>
+      <div class="brand">Bamboo Foam Mattress</div>
+      <div class="nav-subtitle">Mattress • Bed Frame • Box Spring</div>
+    </div>
+  </div>
+
+  <nav class="nav-links">
+    <button onclick="goHome()">Home</button>
+    <button onclick="showCategory('mattress')">Mattress</button>
+    <button onclick="showCategory('bedframe')">Bed Frame</button>
+    <button onclick="showCategory('boxspring')">Box Spring</button>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="label">Premium Online Furniture Catalog</p>
+    <h1>Brand-new mattresses delivered across Quebec & Ottawa.</h1>
+    <p class="hero-text">
+      Browse mattresses, bed frames, and box springs with size, thickness,
+      firmness, spring options, colors, and prices.
+    </p>
+    <button class="hero-btn" onclick="scrollToProducts()">Browse Products</button>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card">
+      <p>Available Products</p>
+      <h3>Mattress • Bed Frame • Box Spring</h3>
+      <span>Pay after delivery available</span>
+    </div>
+  </div>
+</section>
+
+<section class="trust-section">
+  <div class="trust-card">
+    <h3>Same-Day Delivery</h3>
+    <p>Available in Montreal, Laval, Longueuil, Ottawa, Quebec City, and Gatineau.</p>
+  </div>
+
+  <div class="trust-card">
+    <h3>5-Year Guarantee</h3>
+    <p>Replacement support available within warranty terms.</p>
+  </div>
+
+  <div class="trust-card">
+    <h3>Pay After Delivery</h3>
+    <p>Customer can check the product first, then pay after delivery.</p>
+  </div>
+
+  <div class="trust-card">
+    <h3>7-Day Return</h3>
+    <p>Return option available within 7 days according to condition and policy.</p>
+  </div>
+</section>
+
+<section class="discount-banner">
+  <h2>Bundle Discount Available</h2>
+  <p>
+    If more than one product is ordered, customer can get
+    <strong>$20–$30 discount per additional product.</strong>
+  </p>
+</section>
+
+<section class="products-section" id="products">
+  <div class="section-head">
+    <p class="label">Product Catalog</p>
+    <h2>Choose product type</h2>
+  </div>
+
+  <div class="category-grid">
+    <div class="category-card" onclick="showCategory('mattress')">
+      <img src="images/queen-main.png" alt="Mattress">
+      <div>
+        <h3>Mattresses</h3>
+        <p>Single, Double, Queen, King</p>
+      </div>
+    </div>
+
+    <div class="category-card" onclick="showCategory('bedframe')">
+      <img src="images/bedframe-main.png" alt="Bed Frame">
+      <div>
+        <h3>Bed Frames</h3>
+        <p>Black, Brown, White, Grey</p>
+      </div>
+    </div>
+
+    <div class="category-card" onclick="showCategory('boxspring')">
+      <img src="images/boxspring-main.png" alt="Box Spring">
+      <div>
+        <h3>Box Springs</h3>
+        <p>6 inch thickness</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="catalog" id="catalog">
+
+  <div class="steps">
+    <button class="step active" id="stepSize">1. Size</button>
+    <button class="step" id="stepThickness">2. Thickness</button>
+    <button class="step" id="stepFirmness">3. Firmness</button>
+    <button class="step" id="stepSpring">4. Springs</button>
+    <button class="step" id="stepFinal">5. Final</button>
+  </div>
+
+  <section class="panel show" id="sizeSection">
+    <div class="panel-head">
+      <p class="label" id="categoryLabel">Mattress Collection</p>
+      <h2 id="sizeHeading">Choose mattress size</h2>
+    </div>
+    <div class="grid four" id="sizeGrid"></div>
+  </section>
+
+  <section class="panel" id="thicknessSection">
+    <button class="back-btn" onclick="goBackToSize()">← Back to Size</button>
+    <div class="panel-head">
+      <p class="label">Step 2</p>
+      <h2 id="thicknessTitle">Choose thickness</h2>
+    </div>
+    <div class="grid three" id="thicknessGrid"></div>
+  </section>
+
+  <section class="panel" id="firmnessSection">
+    <button class="back-btn" onclick="goBackToThickness()">← Back to Thickness</button>
+    <div class="panel-head">
+      <p class="label">Step 3</p>
+      <h2>Choose firmness</h2>
+    </div>
+    <div class="grid three" id="firmnessGrid"></div>
+  </section>
+
+  <section class="panel" id="springSection">
+    <button class="back-btn" onclick="goBackToFirmness()">← Back to Firmness</button>
+    <div class="panel-head">
+      <p class="label">Step 4</p>
+      <h2>Choose spring option</h2>
+    </div>
+    <div class="grid two" id="springGrid"></div>
+  </section>
+
+  <section class="panel" id="finalSection">
+    <button class="back-btn" onclick="goBackToPrevious()">← Back</button>
+    <div id="finalProduct"></div>
+  </section>
+
+</section>
+
+<footer>
+  <h3>Bamboo Foam Mattress</h3>
+  <p>Serving Montreal, Laval, Longueuil, Ottawa, Quebec City, and Gatineau.</p>
+</footer>
+
+</main>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
