@@ -662,3 +662,35 @@ footer p {
     height: 240px;
   }
 }
+.thickness-card,
+.overlay-card {
+  height: 315px;
+  min-height: 315px;
+  position: relative;
+}
+
+.thickness-card img,
+.overlay-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thickness-info {
+  display: none !important;
+}
+
+.price-box {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 18px 24px !important;
+}
+
+.price-box h3 {
+  margin: 0 !important;
+}
+
+.note {
+  display: none !important;
+}
