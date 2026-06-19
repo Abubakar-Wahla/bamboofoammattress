@@ -150,15 +150,14 @@ function loadThickness() {
 
   product.thickness.forEach(item => {
     const card = document.createElement("div");
-    card.className = `choice-card thickness-card ${selectedThickness.label === item.label ? "selected" : ""}`;
+    card.className = `choice-card overlay-card ${selectedThickness.label === item.label ? "selected" : ""}`;
 
     card.innerHTML = `
       <img src="${item.image}" alt="${product.name}">
-      <div class="thickness-info">
+      <div class="card-overlay compact-overlay">
         <p>${product.dimension}</p>
         <h3>${item.label}</h3>
         <strong>${item.price}</strong>
-        <span>Select Thickness</span>
       </div>
     `;
 
@@ -181,15 +180,14 @@ function loadColors() {
 
   catalogData.bedframe.colors.forEach(color => {
     const card = document.createElement("div");
-    card.className = `choice-card thickness-card ${selectedColor.name === color.name ? "selected" : ""}`;
+    card.className = `choice-card overlay-card ${selectedColor.name === color.name ? "selected" : ""}`;
 
     card.innerHTML = `
       <img src="${color.image}" alt="${color.name}">
-      <div class="thickness-info">
+      <div class="card-overlay compact-overlay">
         <p>${product.name}</p>
         <h3>${color.name}</h3>
         <strong>${product.price}</strong>
-        <span>Select Color</span>
       </div>
     `;
 
@@ -212,7 +210,6 @@ function loadFirmness() {
     card.innerHTML = `
       <h3>${option.name}</h3>
       <p>${option.desc}</p>
-      <span>Select Firmness</span>
     `;
 
     card.onclick = () => {
@@ -235,7 +232,6 @@ function loadSprings() {
     card.innerHTML = `
       <h3>${option.name}</h3>
       <p>${option.desc}</p>
-      <span>Select Spring Option</span>
     `;
 
     card.onclick = () => {
@@ -309,12 +305,8 @@ function showFinal() {
 
         <div class="discount-note">
           <strong>Bundle Discount:</strong>
-          Order more than one product and get $20–$30 discount per additional product.
+          $20–$30 discount per additional product.
         </div>
-
-        <p class="note">
-          Customer can screenshot this selection and send it back in Messenger.
-        </p>
       </div>
     </div>
   `;
@@ -328,42 +320,21 @@ function updateCategoryAbout() {
   if (currentCategory === "mattress") {
     about.innerHTML = `
       <h2>About Our Mattresses</h2>
-      <p>
-        Our brand-new mattresses are available in Single, Double, Queen, and King sizes
-        with multiple thickness, firmness, and spring options.
-      </p>
-      <p>
-        Designed for comfort and support, customers can customize their preferred
-        sleeping experience before placing an order.
-      </p>
+      <p>Brand-new mattresses available in multiple sizes, thickness levels, firmness choices, and spring options.</p>
     `;
   }
 
   if (currentCategory === "bedframe") {
     about.innerHTML = `
       <h2>About Our Bed Frames</h2>
-      <p>
-        Our bed frames are built with strong solid wood construction for long-lasting
-        durability and stability.
-      </p>
-      <p>
-        Available in multiple sizes and colors, they are designed to support the mattress
-        directly without requiring a separate box spring.
-      </p>
+      <p>Strong solid wood bed frames designed for durable support without requiring a separate box spring.</p>
     `;
   }
 
   if (currentCategory === "boxspring") {
     about.innerHTML = `
       <h2>About Our Box Springs</h2>
-      <p>
-        Our box springs are constructed with durable solid wood and come in a standard
-        6-inch thickness.
-      </p>
-      <p>
-        They provide strong mattress support and are available in Single, Double,
-        Queen, and King sizes.
-      </p>
+      <p>Durable pure wood box springs with 6-inch thickness, available in Single, Double, Queen, and King sizes.</p>
     `;
   }
 }
