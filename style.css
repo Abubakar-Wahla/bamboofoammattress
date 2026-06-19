@@ -628,3 +628,75 @@ footer p {
     padding: 26px;
   }
 }
+
+.about-mini {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 18px;
+  background: #eef3f8;
+  color: #1f355a;
+}
+
+.about-mini h3 {
+  margin-bottom: 10px;
+  color: #1f355a;
+}
+
+.about-mini p {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.category-page-head {
+  margin-bottom: 28px;
+}
+
+.category-page-head h2 {
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1;
+  color: #1f2933;
+  margin-bottom: 12px;
+}
+
+.category-page-head p {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.about-section {
+  margin-top: 45px;
+  padding: 35px;
+  background: #fff;
+  border-radius: 26px;
+  border: 1px solid rgba(31, 53, 90, 0.1);
+}
+
+.about-section h2 {
+  color: #1f355a;
+  margin-bottom: 14px;
+  font-size: 32px;
+}
+
+.about-section p {
+  color: #4b5563;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.about-mini {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 18px;
+  background: #eef3f8;
+  color: #1f355a;
+}
+
+.about-mini h3 {
+  margin-bottom: 10px;
+  color: #1f355a;
+}
+
+.about-mini p {
+  color: #4b5563;
+  line-height: 1.6;
+}
