@@ -13,15 +13,18 @@ const springGrid = document.getElementById("springGrid");
 const finalProduct = document.getElementById("finalProduct");
 
 function scrollToProducts() {
+  document.getElementById("products").style.display = "block";
+  document.getElementById("catalog").style.display = "none";
   document.getElementById("products").scrollIntoView({ behavior: "smooth" });
 }
 
 function goHome() {
-  document.getElementById("home").scrollIntoView({ behavior: "smooth" });
   resetSelections();
-  loadSizes();
-  showPanel("sizeSection");
-  setStep("stepSize");
+
+  document.getElementById("products").style.display = "block";
+  document.getElementById("catalog").style.display = "none";
+
+  document.getElementById("home").scrollIntoView({ behavior: "smooth" });
 }
 
 function resetSelections() {
@@ -37,6 +40,10 @@ function showCategory(category) {
   resetSelections();
   updateSteps();
   loadSizes();
+
+  document.getElementById("products").style.display = "none";
+  document.getElementById("catalog").style.display = "block";
+
   showPanel("sizeSection");
   setStep("stepSize");
   document.getElementById("catalog").scrollIntoView({ behavior: "smooth" });
@@ -390,6 +397,15 @@ function showFinal() {
         <p class="note">
           Customer can screenshot this selection and send it back in Messenger.
         </p>
+
+        <div class="about-mini">
+          <h3>About Bamboo Foam Mattress</h3>
+          <p>
+            We provide brand-new mattresses, bed frames, and box springs with delivery
+            available across Montreal, Laval, Longueuil, Ottawa, Quebec City, Gatineau,
+            and surrounding areas.
+          </p>
+        </div>
       </div>
     </div>
   `;
@@ -440,3 +456,5 @@ function goBackToPrevious() {
 
 updateSteps();
 loadSizes();
+
+document.getElementById("catalog").style.display = "none";
