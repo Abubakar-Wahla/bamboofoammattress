@@ -4,7 +4,6 @@ let selectedThickness = null;
 let selectedFirmness = null;
 let selectedSpring = null;
 let selectedColor = null;
-let lastPanel = "sizeSection";
 
 const sizeGrid = document.getElementById("sizeGrid");
 const thicknessGrid = document.getElementById("thicknessGrid");
@@ -13,15 +12,16 @@ const springGrid = document.getElementById("springGrid");
 const finalProduct = document.getElementById("finalProduct");
 
 function scrollToProducts() {
-  document.getElementById("products").style.display = "block";
-  document.getElementById("catalog").style.display = "none";
   document.getElementById("products").scrollIntoView({ behavior: "smooth" });
 }
 
 function goHome() {
   resetSelections();
 
+  document.getElementById("home").style.display = "grid";
   document.getElementById("products").style.display = "block";
+  document.getElementById("trustSection").style.display = "grid";
+  document.getElementById("discountBanner").style.display = "block";
   document.getElementById("catalog").style.display = "none";
 
   document.getElementById("home").scrollIntoView({ behavior: "smooth" });
@@ -38,100 +38,22 @@ function resetSelections() {
 function showCategory(category) {
   currentCategory = category;
   resetSelections();
-  updateSteps();
   loadSizes();
+  updateCategoryAbout();
 
+  document.getElementById("home").style.display = "none";
   document.getElementById("products").style.display = "none";
+  document.getElementById("trustSection").style.display = "none";
+  document.getElementById("discountBanner").style.display = "none";
   document.getElementById("catalog").style.display = "block";
 
   showPanel("sizeSection");
-  setStep("stepSize");
   document.getElementById("catalog").scrollIntoView({ behavior: "smooth" });
-}
-
-function updateSteps() {
-  const steps = document.querySelector(".steps");
-
-  if (currentCategory === "mattress") {
-    steps.innerHTML = `
-      <button class="step active" id="stepSize">1. Size</button>
-      <button class="step" id="stepThickness">2. Thickness</button>
-      <button class="step" id="stepFirmness">3. Firmness</button>
-      <button class="step" id="stepSpring">4. Springs</button>
-      <button class="step" id="stepFinal">5. Final</button>
-    `;
-  }
-
-  if (currentCategory === "bedframe") {
-    steps.innerHTML = `
-      <button class="step active" id="stepSize">1. Size</button>
-      <button class="step" id="stepThickness">2. Color</button>
-      <button class="step" id="stepFinal">3. Final</button>
-    `;
-  }
-
-  if (currentCategory === "boxspring") {
-    steps.innerHTML = `
-      <button class="step active" id="stepSize">1. Size</button>
-      <button class="step" id="stepFinal">2. Final</button>
-    `;
-  }
-
-  bindStepButtons();
-}
-
-function bindStepButtons() {
-  document.getElementById("stepSize")?.addEventListener("click", () => {
-    loadSizes();
-    showPanel("sizeSection");
-    setStep("stepSize");
-  });
-
-  document.getElementById("stepThickness")?.addEventListener("click", () => {
-    ensureDefaults();
-
-    if (currentCategory === "mattress") {
-      loadThickness();
-      showPanel("thicknessSection");
-    }
-
-    if (currentCategory === "bedframe") {
-      loadColors();
-      showPanel("thicknessSection");
-    }
-
-    setStep("stepThickness");
-  });
-
-  document.getElementById("stepFirmness")?.addEventListener("click", () => {
-    ensureDefaults();
-    loadFirmness();
-    showPanel("firmnessSection");
-    setStep("stepFirmness");
-  });
-
-  document.getElementById("stepSpring")?.addEventListener("click", () => {
-    ensureDefaults();
-    loadSprings();
-    showPanel("springSection");
-    setStep("stepSpring");
-  });
-
-  document.getElementById("stepFinal")?.addEventListener("click", () => {
-    ensureDefaults();
-    showFinal();
-  });
 }
 
 function showPanel(panelId) {
   document.querySelectorAll(".panel").forEach(panel => panel.classList.remove("show"));
   document.getElementById(panelId).classList.add("show");
-  lastPanel = panelId;
-}
-
-function setStep(stepId) {
-  document.querySelectorAll(".step").forEach(step => step.classList.remove("active"));
-  document.getElementById(stepId)?.classList.add("active");
 }
 
 function getDefaultSize() {
@@ -206,14 +128,12 @@ function selectSize(sizeKey) {
     selectedSpring = getDefaultSpring();
     loadThickness();
     showPanel("thicknessSection");
-    setStep("stepThickness");
   }
 
   if (currentCategory === "bedframe") {
     selectedColor = getDefaultColor();
     loadColors();
     showPanel("thicknessSection");
-    setStep("stepThickness");
   }
 
   if (currentCategory === "boxspring") {
@@ -246,7 +166,6 @@ function loadThickness() {
       selectedThickness = item;
       loadFirmness();
       showPanel("firmnessSection");
-      setStep("stepFirmness");
     };
 
     thicknessGrid.appendChild(card);
@@ -300,7 +219,6 @@ function loadFirmness() {
       selectedFirmness = option;
       loadSprings();
       showPanel("springSection");
-      setStep("stepSpring");
     };
 
     firmnessGrid.appendChild(card);
@@ -397,64 +315,93 @@ function showFinal() {
         <p class="note">
           Customer can screenshot this selection and send it back in Messenger.
         </p>
-
-        <div class="about-mini">
-          <h3>About Bamboo Foam Mattress</h3>
-          <p>
-            We provide brand-new mattresses, bed frames, and box springs with delivery
-            available across Montreal, Laval, Longueuil, Ottawa, Quebec City, Gatineau,
-            and surrounding areas.
-          </p>
-        </div>
       </div>
     </div>
   `;
 
   showPanel("finalSection");
-  setStep("stepFinal");
+}
+
+function updateCategoryAbout() {
+  const about = document.getElementById("categoryAbout");
+
+  if (currentCategory === "mattress") {
+    about.innerHTML = `
+      <h2>About Our Mattresses</h2>
+      <p>
+        Our brand-new mattresses are available in Single, Double, Queen, and King sizes
+        with multiple thickness, firmness, and spring options.
+      </p>
+      <p>
+        Designed for comfort and support, customers can customize their preferred
+        sleeping experience before placing an order.
+      </p>
+    `;
+  }
+
+  if (currentCategory === "bedframe") {
+    about.innerHTML = `
+      <h2>About Our Bed Frames</h2>
+      <p>
+        Our bed frames are built with strong solid wood construction for long-lasting
+        durability and stability.
+      </p>
+      <p>
+        Available in multiple sizes and colors, they are designed to support the mattress
+        directly without requiring a separate box spring.
+      </p>
+    `;
+  }
+
+  if (currentCategory === "boxspring") {
+    about.innerHTML = `
+      <h2>About Our Box Springs</h2>
+      <p>
+        Our box springs are constructed with durable solid wood and come in a standard
+        6-inch thickness.
+      </p>
+      <p>
+        They provide strong mattress support and are available in Single, Double,
+        Queen, and King sizes.
+      </p>
+    `;
+  }
 }
 
 function goBackToSize() {
   loadSizes();
   showPanel("sizeSection");
-  setStep("stepSize");
 }
 
 function goBackToThickness() {
   if (currentCategory === "mattress") {
     loadThickness();
     showPanel("thicknessSection");
-    setStep("stepThickness");
   }
 }
 
 function goBackToFirmness() {
   loadFirmness();
   showPanel("firmnessSection");
-  setStep("stepFirmness");
 }
 
 function goBackToPrevious() {
   if (currentCategory === "mattress") {
     loadSprings();
     showPanel("springSection");
-    setStep("stepSpring");
   }
 
   if (currentCategory === "bedframe") {
     loadColors();
     showPanel("thicknessSection");
-    setStep("stepThickness");
   }
 
   if (currentCategory === "boxspring") {
     loadSizes();
     showPanel("sizeSection");
-    setStep("stepSize");
   }
 }
 
-updateSteps();
 loadSizes();
-
+updateCategoryAbout();
 document.getElementById("catalog").style.display = "none";
