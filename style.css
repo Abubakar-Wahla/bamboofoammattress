@@ -81,7 +81,7 @@ body {
 }
 
 .hero {
-  min-height: 76vh;
+  min-height: auto;
   padding: 105px 6% 45px;
   display: grid;
   grid-template-columns: 1fr 0.95fr;
@@ -559,94 +559,6 @@ body {
   line-height: 1.6;
 }
 
-footer {
-  padding: 35px 6%;
-  background: #1f355a;
-  color: #fff;
-}
-
-footer h3 {
-  margin-bottom: 8px;
-}
-
-footer p {
-  color: #dbe4ef;
-}
-
-@media (max-width: 1050px) {
-  .hero,
-  .final-card {
-    grid-template-columns: 1fr;
-  }
-
-  .trust-section,
-  .grid.four,
-  .grid.three,
-  .category-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .steps {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 680px) {
-  .nav {
-    align-items: flex-start;
-    gap: 10px;
-    flex-direction: column;
-  }
-
-  .nav-links button {
-    padding: 8px 12px;
-    font-size: 13px;
-  }
-
-  .hero {
-    padding-top: 145px;
-  }
-
-  .hero-visual {
-    height: 330px;
-  }
-
-  .trust-section,
-  .grid.four,
-  .grid.three,
-  .grid.two,
-  .category-grid,
-  .steps {
-    grid-template-columns: 1fr;
-  }
-
-  .image-card {
-    height: 290px;
-  }
-
-  .final-info {
-    padding: 26px;
-  }
-}
-
-.about-mini {
-  margin-top: 24px;
-  padding: 20px;
-  border-radius: 18px;
-  background: #eef3f8;
-  color: #1f355a;
-}
-
-.about-mini h3 {
-  margin-bottom: 10px;
-  color: #1f355a;
-}
-
-.about-mini p {
-  color: #4b5563;
-  line-height: 1.6;
-}
-
 .category-page-head {
   margin-bottom: 28px;
 }
@@ -699,4 +611,166 @@ footer p {
 .about-mini p {
   color: #4b5563;
   line-height: 1.6;
+}
+
+footer {
+  padding: 35px 6%;
+  background: #1f355a;
+  color: #fff;
+}
+
+footer h3 {
+  margin-bottom: 8px;
+}
+
+footer p {
+  color: #dbe4ef;
+}
+
+@media (max-width: 1050px) {
+  .hero,
+  .final-card {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-section,
+  .grid.four,
+  .grid.three,
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .nav {
+    align-items: flex-start;
+    gap: 10px;
+    flex-direction: column;
+    padding: 10px 6%;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+    font-size: 13px;
+  }
+
+  .brand {
+    font-size: 16px;
+  }
+
+  .nav-subtitle {
+    font-size: 10px;
+  }
+
+  .nav-links {
+    gap: 6px;
+  }
+
+  .nav-links button {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 135px 6% 28px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hero h1 {
+    font-size: 35px;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 14px;
+  }
+
+  .hero-text {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .hero-btn {
+    margin-top: 16px;
+    padding: 12px 20px;
+  }
+
+  .hero-visual {
+    height: 255px;
+    margin-top: 0;
+    border-radius: 24px;
+  }
+
+  .hero-card {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .hero-card h3 {
+    font-size: 20px;
+  }
+
+  .trust-section {
+    padding: 22px 6%;
+  }
+
+  .discount-banner {
+    margin: 24px 6%;
+    padding: 22px;
+  }
+
+  .discount-banner h2 {
+    font-size: 24px;
+  }
+
+  .products-section,
+  .catalog {
+    padding: 35px 6%;
+  }
+
+  .trust-section,
+  .grid.four,
+  .grid.three,
+  .grid.two,
+  .category-grid,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .category-card {
+    height: 260px;
+  }
+
+  .image-card {
+    height: 275px;
+  }
+
+  .thickness-card {
+    min-height: auto;
+  }
+
+  .final-card {
+    grid-template-columns: 1fr;
+  }
+
+  .final-image img {
+    min-height: 280px;
+  }
+
+  .final-info {
+    padding: 26px;
+  }
+
+  .about-section {
+    padding: 24px;
+  }
 }
